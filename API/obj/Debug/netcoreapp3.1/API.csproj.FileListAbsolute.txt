@@ -1,0 +1,6 @@
+D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.csprojAssemblyReference.cache
+D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticWebAssets.Manifest.cache
+D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticWebAssets.xml
+D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cache
+D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.AssemblyInfoInputs.cache
+D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.AssemblyInfo.cs
