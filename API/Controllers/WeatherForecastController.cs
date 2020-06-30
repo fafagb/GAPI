@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -9,6 +10,9 @@ namespace API.Controllers {
     [ApiController]
     [Route ("[controller]")]
     public class WeatherForecastController : ControllerBase {
+
+
+        private readonly IHostingEnvironment _hostingEnvironment;
         private static readonly string[] Summaries = new [] {
             "Freezing",
             "Bracing",
@@ -24,15 +28,17 @@ namespace API.Controllers {
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController (ILogger<WeatherForecastController> logger) {
-            _logger = logger;
+        public WeatherForecastController (ILogger<WeatherForecastController> logger, IHostingEnvironment hostingEnvironment) {
+            _hostingEnvironment = hostingEnvironment;
+             _logger = logger;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get () {
+            string contentRootPath = _hostingEnvironment.ContentRootPath;
             return await Task.Run (() => {
-
-                return Ok ("胖头鱼陆新元");
+                return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
+               // return Ok ("胖头鱼陆新元");
             });
 
         }
