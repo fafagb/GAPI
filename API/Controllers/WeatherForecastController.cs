@@ -36,8 +36,9 @@ namespace API.Controllers {
         [HttpGet]
         public async Task<IActionResult> Get () {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
+            _logger.LogInformation(contentRootPath);
             return await Task.Run (() => {
-                _logger.LogInformation(contentRootPath);
+              
                 return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
                // return Ok ("胖头鱼陆新元");
             });

@@ -4,3 +4,6 @@ API/bin/Debug/netcoreapp3.1/API.pdb
 API/obj/Debug/netcoreapp3.1/API.csproj.FileListAbsolute.txt
 API/obj/Debug/netcoreapp3.1/API.csprojAssemblyReference.cache
 /.vs/GAPI/v16/Server/sqlite3
+/API/logs
+/API/bin/Debug/netcoreapp3.1
+/API/obj/Debug/netcoreapp3.1
