@@ -9,8 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace API
 {
-    public class Program
-    {
+
 public class  Person{
 
         public   int  Age{get;set;}

@@ -26,8 +26,13 @@ namespace API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
+         return   await Task.Run(() =>
+            {
 
-          return Ok("hello world");
+                return Ok("hello world");
+            });
+
+
         }
     }
 }
