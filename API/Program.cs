@@ -10,11 +10,12 @@ using Microsoft.Extensions.Logging;
 namespace API
 {
 
-public class  Person{
+    public class Person
+    {
 
-        public   int  Age{get;set;}
+        public int Age { get; set; }
 
-        public   string  Name{get;set;}
+        public string Name { get; set; }
 
     }
 
@@ -23,12 +24,12 @@ public class  Person{
         public static void Main(string[] args)
         {
 
-LinkedList<Person> a =new LinkedList<Person>();
- Person p=new Person(){ Age=1,Name="Gerald"};
- Person p1=new Person(){ Age=1,Name="Gerald"};
-a.AddFirst(p);
-bool  ok= a.Contains(p);
-bool  ok1= a.Contains(p1);
+            LinkedList<Person> a = new LinkedList<Person>();
+            Person p = new Person() { Age = 1, Name = "Gerald" };
+            Person p1 = new Person() { Age = 1, Name = "Gerald" };
+            a.AddFirst(p);
+            bool ok = a.Contains(p);
+            bool ok1 = a.Contains(p1);
 
             CreateHostBuilder(args).Build().Run();
         }
@@ -38,7 +39,7 @@ bool  ok1= a.Contains(p1);
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                     webBuilder.ConfigureKestrel(options => options.ListenAnyIP(5000));
+                    webBuilder.ConfigureKestrel(options => options.ListenAnyIP(5000));
                 });
     }
 }
