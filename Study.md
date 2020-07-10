@@ -1,3 +1,4 @@
+# dotnet  new  sln  -n  GAPI
 #   dotnet sln   GAPI.sln    add   **/*.csproj
 
 #   git diff ^M的消除 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,13 +27,17 @@ namespace API
     {
         public static void Main(string[] args)
         {
+            int[] arr=new int[5];
             Log.Logger = new LoggerConfiguration()
-               .MinimumLevel.Debug() //设置输出日志的最小级别
-               .MinimumLevel.Override("Microsoft", LogEventLevel.Information) //命名空间以Microsoft开头的日志输出的最小级别设置为Information
+               .MinimumLevel.Debug() 
+               .MinimumLevel.Override("Microsoft", LogEventLevel.Information) 
                .Enrich.FromLogContext()
                 .WriteTo.Console()
                .WriteTo.File(Path.Combine("logs", "api.txt"), rollingInterval: RollingInterval.Day)
                .CreateLogger();
+
+               ArrayList  list=new ArrayList();
+               
             LinkedList<Person> a = new LinkedList<Person>();
             Person p = new Person() { Age = 1, Name = "Gerald" };
             Person p1 = new Person() { Age = 1, Name = "Gerald" };
