@@ -8,3 +8,5 @@
 # 如果用git diff的时候看到^M字符，就说明两个文件在换行符上有所差别。
 # git config --global core.whitespace cr-at-eol    
 
+# vi  /etc/supervisord.d/GAPI.ini 
+
