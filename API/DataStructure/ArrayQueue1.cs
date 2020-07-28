@@ -16,7 +16,7 @@ namespace API.DataStructure
             _items = new T[size];
             _size = size;
         }
-
+//重复使用队列逻辑：队首有空间并且队尾没有空间的时候进行元素向队首搬移
         public bool Enqueue(T item) {
             // 队列末尾没有空间了
             if (_tail == _size) {
