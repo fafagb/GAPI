@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\mywork\\github\\GAPI\\API\\API.csproj": {}
+    "d:\\mywork\\github\\GAPI\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\mywork\\github\\GAPI\\API\\API.csproj": {
+    "d:\\mywork\\github\\GAPI\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\mywork\\github\\GAPI\\API\\API.csproj",
+        "projectUniqueName": "d:\\mywork\\github\\GAPI\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\mywork\\github\\GAPI\\API\\API.csproj",
+        "projectPath": "d:\\mywork\\github\\GAPI\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "D:\\mywork\\github\\GAPI\\API\\obj\\",
+        "outputPath": "d:\\mywork\\github\\GAPI\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,6 +40,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Serilog.Sinks.Console": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
