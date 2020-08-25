@@ -2,14 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace GAPI.DataStructure {
+namespace GAPI.Grammar
+{
 
-    public class Grammar {
+
+ 
+
+
+
+    public class PropertyAndIndex
+    {
 
         private int _id;
-        public int ID {
+        public int ID
+        {
             get { if (_id == 0) { return 1; } else { return _id; } }
-            set {
+            set
+            {
                 if (value == 0)
                     _id = 1;
                 else
@@ -17,14 +26,20 @@ namespace GAPI.DataStructure {
             }
         }
 
-        private List<string> _list = new List<string> () { "1", "2", "3" }; //私用,不像在外部声明被使用
-        public string this [int index] {
+        private List<string> _list = new List<string>() { "1", "2", "3" }; //私用,不像在外部声明被使用
+        public string this[int index]
+        {
 
-            get {
+            get
+            {
                 return _list[index];
             }
 
         }
+
+
+
+
 
     }
 }

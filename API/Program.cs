@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GAPI.DataStructure;
+using GAPI.Grammar;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -25,9 +26,16 @@ namespace API {
     public class Program {
         public static void Main (string[] args) {
 
- LinkedList<string>  ll=new LinkedList<string>();
 
-            Grammar grammar = new Grammar ();
+             Func<string, string> translation = x =>
+             {
+                 return x.ToUpper();
+             };
+
+            Person p3 = new Person (){ Age=1    };
+            Person p4 = p3;
+            Person p5 = new Person() { Age = 1 };
+            PropertyAndIndex grammar = new PropertyAndIndex ();
             Console.WriteLine (grammar[1]);
 
             int[] aa = new int[6] { 1, 2, 3, 4, 5, 6 };
@@ -40,7 +48,6 @@ namespace API {
                 Console.WriteLine (aa[i]);
             }
 
-            int[] arr = new int[5];
             Log.Logger = new LoggerConfiguration ()
                 .MinimumLevel.Debug ()
                 .MinimumLevel.Override ("Microsoft", LogEventLevel.Information)

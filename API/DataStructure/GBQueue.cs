@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 
 namespace GAPI.DataStructure {
-    //实现一个一次性队列   author by  fafagb
+    //实现一个一次性队列   author by  fafagb   未完成不一定对
 
     public class ThrowawayArrayQueue<T> {
         public T[] ArrayQueue { get; set; }

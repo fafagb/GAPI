@@ -16,3 +16,16 @@ D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\API.pdb
 D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.RazorTargetAssemblyInfo.cache
 D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.dll
 D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.pdb
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.AspNetCore.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Extensions.Hosting.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Extensions.Logging.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Formatting.Compact.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Settings.Configuration.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.csproj.CopyComplete
