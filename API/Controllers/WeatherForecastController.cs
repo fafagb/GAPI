@@ -10,8 +10,7 @@ namespace API.Controllers {
     [ApiController]
     [Route ("[controller]")]
     public class WeatherForecastController : ControllerBase {
-
-
+        [Obsolete]
         private readonly IHostingEnvironment _hostingEnvironment;
         private static readonly string[] Summaries = new [] {
             "Freezing",

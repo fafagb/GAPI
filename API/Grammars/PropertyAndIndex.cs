@@ -26,7 +26,7 @@ namespace GAPI.Grammar
             }
         }
 
-        private List<string> _list = new List<string>() { "1", "2", "3" }; //私用,不像在外部声明被使用
+        private List<string> _list = new List<string>() { "1", "2", "3" }; //私用,不想在外部声明被使用
         public string this[int index]
         {
 
