@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GAPI.DataStructure;
-using GAPI.Grammar;
+using GAPI.Grammars;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -81,6 +81,12 @@ namespace API {
         string name1="祖国";
         string name2="人民";
           Console.WriteLine($"{name1}和{name2}");
+
+
+MessageConfigure  message=new MessageConfigure();
+message.Send(configure=>configure.UseEmail());
+
+
         CreateHostBuilder (args).Build ().Run ();
     }
 
@@ -89,6 +95,7 @@ namespace API {
         .ConfigureWebHostDefaults (webBuilder => {
             webBuilder.UseStartup<Startup> ().UseSerilog ();
             webBuilder.ConfigureKestrel (options => options.ListenAnyIP (5000));
+            webBuilder.ConfigureLogging(configure=>configure.AddDebug());
         });
 }
 }

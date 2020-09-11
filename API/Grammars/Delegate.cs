@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-namespace GAPI.Grammar {
+namespace GAPI.Grammars {
     public delegate int GBDelegate (int number);
 
     public delegate TResult GBFunc<in T1, in T2, out TResult> (T1 arg1, T2 arg2);
