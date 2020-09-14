@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+
 namespace GAPI.Grammars {
     public delegate int GBDelegate (int number);
 
@@ -35,6 +37,10 @@ return 0;
 
 
         public void Call () {
+
+
+         
+
             // 原始
             // GBDelegate gBDelegate = new GBDelegate (Sum); //GBDelegate  gBDelegate=Sum;
             // gBDelegate (5);
