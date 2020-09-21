@@ -9,7 +9,9 @@ namespace API.DataStructure
     {
         private readonly T[] _items;
         private readonly int _size = 0;
+        //出队游标
         private int _head = 0;
+        //入队游标
         private int _tail = 0;
 
         public ArrayQueue1(int size) {

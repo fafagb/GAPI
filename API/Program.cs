@@ -26,6 +26,10 @@ namespace API {
     public class Program {
 
         public static void Main (string[] args) {
+
+
+            
+            
             #region 本地方法
             Foo foo = new Foo ();
             List<int> list1 = foo.Bar<int> (new int[5] { 0, 1, 2, 3, 4 }).ToList ();
