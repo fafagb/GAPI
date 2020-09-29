@@ -7,11 +7,7 @@
                 /// 时间戳计时开始时间
                 /// </summary>
                 private static DateTime timeStampStartTime = new DateTime (1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-                public long ConvertToTimeStmap (DateTime dt) {
-                    return (dt.ToUniversalTime ().Ticks - 621355968000000000) / 10000000;
-
-                }
-
+               
                 /// <summary>
                 /// 10位时间戳（单位：秒）转换为DateTime
                 /// </summary>
@@ -20,8 +16,15 @@
                 public  DateTime TimeStampToDateTime (long timeStamp) {
                     return timeStampStartTime.AddSeconds (timeStamp).ToLocalTime ();
                 }
+               
+               
+               
+                public long ConvertToTimeStmap (DateTime dt) {
+                    return (dt.ToUniversalTime ().Ticks - 621355968000000000) / 10000000;
 
-                /// <summary>
+                }
+
+                                /// <summary>
                 /// 将时间戳转化为对应的时间
                 /// </summary>
                 /// <param name="time"></param>
@@ -33,6 +36,11 @@
                     DateTime dt = new DateTime (t);
                     return dt;
                 }
+
+
+               
+
+
 
             }
 
