@@ -27,9 +27,17 @@ namespace API {
 
         public static void Main (string[] args) {
 
+            #region 迭代器
+            #endregion
+            #region 时间戳
+            DateTimeUtil util = new DateTimeUtil ();
+            long l1 = util.ConvertToTimeStmap (Convert.ToDateTime ("2020-09-29 13:21:25"));
+            var dt1 = util.ConvertToDateTime (l1);
+          var dt2=  util.TimeStampToDateTime(l1);
+            DateTime timeStamp = new DateTime (1970, 1, 1);
+            long l2 = timeStamp.Ticks;
+            #endregion
 
-            
-            
             #region 本地方法
             Foo foo = new Foo ();
             List<int> list1 = foo.Bar<int> (new int[5] { 0, 1, 2, 3, 4 }).ToList ();
@@ -69,7 +77,6 @@ namespace API {
             gBDataBase.Excute (1); //执行读操作
             gBDataBase.DelegateModeExcute (db => db.ExecuteRead ()); //执行读操作
 
-
             MessageConfigure message = new MessageConfigure ();
             message.Send (configure => configure.UseEmail ());
             #endregion
@@ -98,8 +105,6 @@ namespace API {
             }
             #endregion
 
-            
-
             #region 动态数组（扩容数组）
             //缺点，添加元素为object类型，所以存数据和取数据就涉及到了装箱和拆箱的操作，性能低
             ArrayList list = new ArrayList ();
@@ -111,7 +116,7 @@ namespace API {
             Person p = new Person () { Age = 1, Name = "Gerald" };
             a.AddFirst (p);
             #endregion
-          
+
             #region $语法
             Console.WriteLine (string.Format ("{0}和{1}", "祖国", "人民"));
             string name1 = "祖国";
