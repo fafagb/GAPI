@@ -14,13 +14,12 @@ namespace GAPI.DataStructure {
         }
 
     }
-
+    //链表栈
     public class LinkListStack {
 
+        public bool Push () {
 
-        public   bool   Push(){
-
-return  true;
+            return true;
 
         }
 
