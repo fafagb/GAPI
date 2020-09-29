@@ -23,6 +23,12 @@ namespace GAPI.DataStructure {
 
         }
 
+        public bool Pop () {
+
+            return true;
+
+        }
+
     }
 
 }
