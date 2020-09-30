@@ -38,8 +38,8 @@ namespace API.Controllers {
             _logger.LogInformation(contentRootPath);
             return await Task.Run (() => {
               
-                return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
-               // return Ok ("胖头鱼陆新元");
+               // return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
+                return Ok ("胖头鱼陆新元");
             });
 
         }

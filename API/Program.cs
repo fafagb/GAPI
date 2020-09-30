@@ -15,31 +15,41 @@ using Serilog.Events;
 
 namespace API {
 
-    public class Person {
 
-        public int Age { get; set; }
-
-        public string Name { get; set; }
-
-    }
 
     public class Program {
 
         public static void Main (string[] args) {
+           
+ #region 转换
 
+// Dad  dad=new Dad();
+// Son son=dad;
+Son son=new Son();
+Dad dad=son;
+
+List<int> li=new List<int>();
+IEnumerable<int> le1=li;
+
+
+IEnumerable<int>  le2=new  List<int>();
+//li=le2;//不行
+li=le2.ToList();
+//结论：子类可以赋值父类，反之则不行需要强制转换
+#endregion
             #region 迭代器
-            #endregion
-            #region 时间戳
-            DateTimeUtil util = new DateTimeUtil ();
-            long l1 = util.ConvertToTimeStmap (Convert.ToDateTime ("2020-09-29 13:21:25"));
-            var dt1 = util.ConvertToDateTime (l1);
-          var dt2=  util.TimeStampToDateTime(l1);
-            DateTime timeStamp = new DateTime (1970, 1, 1);
-            long l2 = timeStamp.Ticks;
+            Iterator iterator = new Iterator ();
+           // iterator.OddSequence (100, 1000).ToList();//在ToList的时候才调用了OddSequence方法。
+          //List<int> li=  iterator.OddSequence (100, 1000).ToList();
+        //   foreach (var item in li)
+        //   {
+        //       Console.WriteLine(item);
+        //   }
             #endregion
 
             #region 本地方法
             Foo foo = new Foo ();
+            //foo.OddSequence (100, 1000);不同ToList()就报错了，这就是本地方法迭代器和普通方法迭代器的在异常上的区别
             List<int> list1 = foo.Bar<int> (new int[5] { 0, 1, 2, 3, 4 }).ToList ();
 
             //本地方法
@@ -54,6 +64,15 @@ namespace API {
             Func<int> ff = Sim;
 
             int cc = ff ();
+            #endregion
+
+            #region 时间戳
+            DateTimeUtil util = new DateTimeUtil ();
+            long l1 = util.ConvertToTimeStmap (Convert.ToDateTime ("2020-09-29 13:21:25"));
+            var dt1 = util.ConvertToDateTime (l1);
+            var dt2 = util.TimeStampToDateTime (l1);
+            DateTime timeStamp = new DateTime (1970, 1, 1);
+            long l2 = timeStamp.Ticks;
             #endregion
 
             #region  委托   
