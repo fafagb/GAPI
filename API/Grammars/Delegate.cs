@@ -68,7 +68,7 @@ return 0;
         
         //委托套委托
         GBFunc<GBDelegate,int,int> gBFunc=Multiplication;
-        
+
         }
 
         public int Call (int x, int y) {

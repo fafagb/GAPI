@@ -15,36 +15,33 @@ using Serilog.Events;
 
 namespace API {
 
-
-
     public class Program {
 
         public static void Main (string[] args) {
-           
- #region 转换
 
-// Dad  dad=new Dad();
-// Son son=dad;
-Son son=new Son();
-Dad dad=son;
+            #region 转换
 
-List<int> li=new List<int>();
-IEnumerable<int> le1=li;
+            // Dad  dad=new Dad();
+            // Son son=dad;
+            Son son = new Son ();
+            Dad dad = son;
 
+            List<int> li = new List<int> ();
+            IEnumerable<int> le1 = li;
 
-IEnumerable<int>  le2=new  List<int>();
-//li=le2;//不行
-li=le2.ToList();
-//结论：子类可以赋值父类，反之则不行需要强制转换
-#endregion
+            IEnumerable<int> le2 = new List<int> ();
+            //li=le2;//不行
+            li = le2.ToList ();
+            //结论：子类可以赋值父类，反之则不行需要强制转换
+            #endregion
             #region 迭代器
             Iterator iterator = new Iterator ();
-           // iterator.OddSequence (100, 1000).ToList();//在ToList的时候才调用了OddSequence方法。
-          //List<int> li=  iterator.OddSequence (100, 1000).ToList();
-        //   foreach (var item in li)
-        //   {
-        //       Console.WriteLine(item);
-        //   }
+            // iterator.OddSequence (100, 1000).ToList();//在ToList的时候才调用了OddSequence方法。
+            //List<int> li=  iterator.OddSequence (100, 1000).ToList();
+            //   foreach (var item in li)
+            //   {
+            //       Console.WriteLine(item);
+            //   }
             #endregion
 
             #region 本地方法
