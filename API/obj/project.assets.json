@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "KingAOP/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/KingAOP.dll": {}
+        },
+        "runtime": {
+          "lib/KingAOP.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -1018,6 +1027,18 @@
     }
   },
   "libraries": {
+    "KingAOP/1.0.0": {
+      "sha512": "KViP5BtaUQ/iGDYuq+Gb9QyTQlC8pFJkJmbd9ZeqOKeTkuw0YrZ68WjtF1cwBKPGKU+ubIS5dktUi7FMbQuUlA==",
+      "type": "package",
+      "path": "kingaop/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "kingaop.1.0.0.nupkg.sha512",
+        "kingaop.nuspec",
+        "lib/KingAOP.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.0.0": {
       "sha512": "IR2zlm3d/CmYbkw+cMM7M6mUAi+xsFUPfWqGYqzZVC5o6jX3xD2Z4Uf44UBaWKMBf5Z7q9dodIdXxwFPF2Hxhg==",
       "type": "package",
@@ -3778,6 +3799,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "KingAOP",
       "Serilog >= 2.9.0",
       "Serilog.AspNetCore >= 3.2.0",
       "Serilog.Sinks.Console >= 3.1.1",
@@ -3825,6 +3847,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "KingAOP": {
+            "target": "Package",
+            "version": "(, )"
+          },
           "Serilog": {
             "target": "Package",
             "version": "[2.9.0, )"
@@ -3863,5 +3889,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8”而不是项目目标框架“.NETCoreApp,Version=v3.1”还原包“KingAOP 1.0.0”。此包可能与项目不完全兼容。",
+      "libraryId": "KingAOP",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
