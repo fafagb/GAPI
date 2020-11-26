@@ -22,7 +22,7 @@ namespace API {
             #region 转换
 
             // Dad  dad=new Dad();
-            // Son son=dad;
+            // Son son=dad;//需要强制转换
             Son son = new Son ();
             Dad dad = son;
 
@@ -46,7 +46,8 @@ namespace API {
 
             #region 本地方法
             Foo foo = new Foo ();
-            //foo.OddSequence (100, 1000);不同ToList()就报错了，这就是本地方法迭代器和普通方法迭代器的在异常上的区别
+          var flist=  foo.Fibonacci(10).ToList();
+            //foo.OddSequence (100, 1000);不用ToList()就报错了，这就是本地方法迭代器和普通方法迭代器的在异常上的区别
             List<int> list1 = foo.Bar<int> (new int[5] { 0, 1, 2, 3, 4 }).ToList ();
 
             //本地方法
