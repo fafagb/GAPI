@@ -3,14 +3,12 @@ namespace GAPI.Grammars {
 
     public class MessageConfigure {
 
- public   void  Send(Action<MessageBuilder> configure){
+        public void Send (Action<MessageBuilder> configure) {
 
-MessageBuilder  builder=new MessageBuilder();
-configure(builder);
-    
- }
+            MessageBuilder builder = new MessageBuilder ();
+            configure (builder);
 
-
+        }
 
     }
 }
