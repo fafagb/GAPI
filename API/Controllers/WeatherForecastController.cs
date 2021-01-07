@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GAPI.Grammars;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace API.Controllers {
     [ApiController]
-    [Route ("[controller]")]
+    [Route ("[controller]/[action]")]
     public class WeatherForecastController : ControllerBase {
         [Obsolete]
         private readonly IHostingEnvironment _hostingEnvironment;
@@ -34,6 +35,20 @@ namespace API.Controllers {
 
         [HttpGet]
         public async Task<IActionResult> Get () {
+            string contentRootPath = _hostingEnvironment.ContentRootPath;
+            _logger.LogInformation(contentRootPath);
+            return await Task.Run (() => {
+              
+               // return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
+                return Ok ("胖头鱼陆新元");
+            });
+
+        }
+
+
+
+            [HttpGet]
+        public async Task<IActionResult> GetPara (List<int> list) {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
             _logger.LogInformation(contentRootPath);
             return await Task.Run (() => {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using GAPI.DataStructure;
@@ -19,6 +20,15 @@ namespace API {
     public class Program {
 
         public static void Main (string[] args) {
+
+            #region 正则
+            string line = @"\login\asdads";
+            Regex reg = new Regex (@"\\(.*?)\\");
+            Match match = reg.Match (line);
+            string value = match.Groups[1].Value;
+            Console.WriteLine ("value的值为：{0}", value);
+            #endregion
+
             #region Task回调
             TaskFactory taskFactory = new TaskFactory ();
             List<Task> tastServiceList = new List<Task> ();
