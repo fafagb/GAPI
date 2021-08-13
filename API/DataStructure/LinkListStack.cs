@@ -14,7 +14,7 @@ namespace GAPI.DataStructure {
         }
 
     }
-    //链表栈
+    //链表栈:基于链表的栈
     public class LinkListStack {
 
         public bool Push () {

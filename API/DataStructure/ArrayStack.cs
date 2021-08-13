@@ -3,7 +3,10 @@ using System.Collections.Generic;
 namespace GAPI.DataStructure {
 
 
-
+    /// <summary>
+    /// 基于数组的栈
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class GBStack<T> {
 
         private int Count { get; set; }

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using GAPI.DataStructure;
 using GAPI.Grammars;
@@ -18,11 +20,38 @@ namespace API {
     public class Program {
 
         public static void Main (string[] args) {
+Console.WriteLine("123");
+            #region 正则
+            string line = @"\login\asdads";
+            Regex reg = new Regex (@"\\(.*?)\\");
+            Match match = reg.Match (line);
+            string value = match.Groups[1].Value;
+            Console.WriteLine ("value的值为：{0}", value);
+            #endregion
+
+            #region Task回调
+            TaskFactory taskFactory = new TaskFactory ();
+            List<Task> tastServiceList = new List<Task> ();
+            for (int i = 0; i < 3; i++) {
+                tastServiceList.Add (Task.Run (() => {
+
+                    Console.WriteLine ("123");
+                    Thread.Sleep (3000);
+                }).ContinueWith (t => {
+
+                    Console.WriteLine ("456");
+                }));
+            }
+
+            taskFactory.ContinueWhenAll (tastServiceList.ToArray (), t => {
+                Console.WriteLine ("全部完成");
+            });
+            #endregion
 
             #region 转换
 
             // Dad  dad=new Dad();
-            // Son son=dad;
+            // Son son=dad;//需要强制转换
             Son son = new Son ();
             Dad dad = son;
 
@@ -46,7 +75,8 @@ namespace API {
 
             #region 本地方法
             Foo foo = new Foo ();
-            //foo.OddSequence (100, 1000);不同ToList()就报错了，这就是本地方法迭代器和普通方法迭代器的在异常上的区别
+            var flist = foo.Fibonacci (10).ToList ();
+            //foo.OddSequence (100, 1000);不用ToList()就报错了，这就是本地方法迭代器和普通方法迭代器的在异常上的区别
             List<int> list1 = foo.Bar<int> (new int[5] { 0, 1, 2, 3, 4 }).ToList ();
 
             //本地方法
@@ -176,7 +206,7 @@ namespace API {
             Host.CreateDefaultBuilder (args)
             .ConfigureWebHostDefaults (webBuilder => {
                 webBuilder.UseStartup<Startup> ().UseSerilog ();
-                webBuilder.ConfigureKestrel (options => options.ListenAnyIP (5000));
+                // webBuilder.ConfigureKestrel (options => options.ListenAnyIP (5000));
                 webBuilder.ConfigureLogging (configure => configure.AddDebug ());
             });
     }

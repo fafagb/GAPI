@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\mywork\\github\\GAPI\\API\\API.csproj": {}
   },
   "projects": {
@@ -12,24 +13,39 @@
         "projectPath": "D:\\mywork\\github\\GAPI\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "D:\\mywork\\github\\GAPI\\API\\obj\\",
+=======
+    "D:\\github\\GAPI\\API\\API.csproj": {}
+  },
+  "projects": {
+    "D:\\github\\GAPI\\API\\API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\github\\GAPI\\API\\API.csproj",
+        "projectName": "API",
+        "projectPath": "D:\\github\\GAPI\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\ruiyi\\.nuget\\packages\\",
+        "outputPath": "D:\\github\\GAPI\\API\\obj\\",
+>>>>>>> ffab34fcf34f484f284b0a1aa24918cd5ec42971
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ruiyi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "netcoreapp5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "http://www.gaokaoyun.net/RiCommon/nuget": {},
+<<<<<<< HEAD
           "https://www.nuget.org/api/v2/": {}
+=======
+          "https://api.nuget.org/v3/index.json": {}
+>>>>>>> ffab34fcf34f484f284b0a1aa24918cd5ec42971
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net5.0": {
+            "targetAlias": "netcoreapp5.0",
             "projectReferences": {}
           }
         },
@@ -40,11 +56,16 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "netcoreapp5.0",
           "dependencies": {
-            "KingAOP": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[5.0.2, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
             },
             "Serilog": {
               "target": "Package",
@@ -73,6 +94,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.3, 5.0.3]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -81,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

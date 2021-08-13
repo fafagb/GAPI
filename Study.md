@@ -10,3 +10,6 @@
 
 # vi  /etc/supervisord.d/GAPI.ini 
 
+
+# dotnet publish -c Release
+
