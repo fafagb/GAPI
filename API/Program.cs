@@ -128,9 +128,31 @@ namespace API {
             #endregion
 
             #region 链表
+            //last,late,latest
             LinkedList<Person> a = new LinkedList<Person> ();
-            Person p = new Person () { Age = 1, Name = "Gerald" };
-            a.AddFirst (p);
+            
+            Person person1 = new Person () { Age = 1, Name = "Gerald1" };
+              Person person2 = new Person () { Age = 2, Name = "Gerald2" };
+             Person person3 = new Person () { Age = 3, Name = "Gerald3" };
+               LinkedListNode<Person> lln1 =new LinkedListNode<Person>(person1);
+                 LinkedListNode<Person> lln2 =new LinkedListNode<Person>(person2);
+            a.AddFirst(lln1);//头插法
+            a.AddFirst(lln2);//头插法
+            // a.AddLast(lln1);//尾插法
+            // a.AddLast(lln1);//尾插法
+              foreach (var item in a)
+             {
+                 Console.WriteLine(item.Name);
+             }
+           
+           Console.WriteLine("结束");
+
+            
+             a.AddAfter(lln1,person3);
+             foreach (var item in a)
+             {
+                 Console.WriteLine(item.Name);
+             }
             #endregion
 
             #region $语法

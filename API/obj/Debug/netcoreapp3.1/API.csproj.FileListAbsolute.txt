@@ -29,3 +29,4 @@ D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Sinks.Debug.dll
 D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
 D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.csproj.CopyComplete
 D:\mywork\github\GAPI\API\obj\Debug\netcoreapp3.1\API.csprojAssemblyReference.cache
+D:\mywork\github\GAPI\API\bin\Debug\netcoreapp3.1\KingAOP.dll

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\mywork\\github\\GAPI\\API\\API.csproj": {}
+    "D:\\mywork\\github\\GAPI\\API\\API.csproj": {}
   },
   "projects": {
-    "d:\\mywork\\github\\GAPI\\API\\API.csproj": {
+    "D:\\mywork\\github\\GAPI\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\mywork\\github\\GAPI\\API\\API.csproj",
+        "projectUniqueName": "D:\\mywork\\github\\GAPI\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "d:\\mywork\\github\\GAPI\\API\\API.csproj",
+        "projectPath": "D:\\mywork\\github\\GAPI\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "d:\\mywork\\github\\GAPI\\API\\obj\\",
+        "outputPath": "D:\\mywork\\github\\GAPI\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://www.gaokaoyun.net/RiCommon/nuget": {},
           "https://www.nuget.org/api/v2/": {}
         },
         "frameworks": {

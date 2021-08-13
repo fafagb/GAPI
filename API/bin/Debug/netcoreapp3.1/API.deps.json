@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "API/1.0.0": {
         "dependencies": {
+          "KingAOP": "1.0.0",
           "Serilog": "2.9.0",
           "Serilog.AspNetCore": "3.2.0",
           "Serilog.Sinks.Console": "3.1.1",
@@ -316,6 +317,17 @@
         },
         "compile": {
           "API.dll": {}
+        }
+      },
+      "KingAOP/1.0.0": {
+        "runtime": {
+          "lib/KingAOP.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/KingAOP.dll": {}
         }
       },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.0.0": {
@@ -2681,6 +2693,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "KingAOP/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KViP5BtaUQ/iGDYuq+Gb9QyTQlC8pFJkJmbd9ZeqOKeTkuw0YrZ68WjtF1cwBKPGKU+ubIS5dktUi7FMbQuUlA==",
+      "path": "kingaop/1.0.0",
+      "hashPath": "kingaop.1.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.0.0": {
       "type": "package",
