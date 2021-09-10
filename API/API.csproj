@@ -1,9 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp5.0</TargetFramework>
+    <!-- <TargetFramework>netcoreapp5.0</TargetFramework>-->
     <!-- <UseAppHost>false</UseAppHost> 安装dotnet-apphost-pack-5.0.3-win-x64.msi后不需要该节点-->
-    <RuntimeFrameworkVersion>5.0.3</RuntimeFrameworkVersion>
+   <!-- <RuntimeFrameworkVersion>5.0.3</RuntimeFrameworkVersion>-->
 
+
+ <TargetFramework>netcoreapp3.1</TargetFramework>
+   <RuntimeFrameworkVersion>3.1</RuntimeFrameworkVersion>
     <ApplicationIcon/>
     <Win32Resource/>
   </PropertyGroup>

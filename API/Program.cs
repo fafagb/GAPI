@@ -20,7 +20,7 @@ namespace API {
     public class Program {
 
         public static void Main (string[] args) {
-Console.WriteLine("123");
+
             #region 正则
             string line = @"\login\asdads";
             Regex reg = new Regex (@"\\(.*?)\\");
