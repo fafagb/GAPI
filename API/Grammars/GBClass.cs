@@ -5,32 +5,20 @@ namespace GAPI.Grammars {
 
     public class Dad {
 
-       
+    }
 
-
-
-
-
+    public class Son : Dad {
 
     }
 
-
-
-    public  class  Son:Dad{
-
-
-    }
-
-
-
-
-
-        public class Person {
+    public class Person {
 
         public int Age { get; set; }
 
         public string Name { get; set; }
 
     }
+
+   
 
 }
