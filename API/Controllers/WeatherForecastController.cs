@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using API.Data;
 using GAPI.API.Data;
@@ -49,10 +50,24 @@ namespace API.Controllers {
             foreach (var item in list) {
                 str += item + ",";
             }
+              await TestThread ();
             return await Task.Run (() => {
 
                 // return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
                 return Ok (str);
+            });
+          
+        }
+
+        public async Task<int> TestThread () {
+            await Test1 ();
+            return 1;
+        }
+
+        public Task<int> Test1 () {
+            return Task.Run (() => {
+                Thread.Sleep (5000);
+                return 1;
             });
 
         }
@@ -68,5 +83,6 @@ namespace API.Controllers {
             });
 
         }
+
     }
 }

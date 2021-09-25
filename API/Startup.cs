@@ -56,7 +56,7 @@ namespace API
                 Console.WriteLine("中间件1号 End");
             });
 
-            app.UseHttpsRedirection();
+           app.UseHttpsRedirection();
 
             app.UseRouting();
 
