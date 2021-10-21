@@ -70,7 +70,7 @@ namespace GAPI.Grammars {
 
     public  static  class  IEnumerableExtend {
 
-           public static IEnumerable<T> Where<T>(this IEnumerable<T> items,Func<T,bool> func)
+           public static IEnumerable<T> NewWhere<T>(this IEnumerable<T> items,Func<T,bool> func)
         {
            List<T> data = new List<T>();
            foreach (var item in items)
