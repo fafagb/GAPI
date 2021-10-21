@@ -1,3 +1,4 @@
+using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -61,6 +62,25 @@ namespace GAPI.Grammars {
             }
         }
 
+    }
+
+
+
+
+
+    public  static  class  IEnumerableExtend {
+
+           public static IEnumerable<T> Where<T>(this IEnumerable<T> items,Func<T,bool> func)
+        {
+           List<T> data = new List<T>();
+           foreach (var item in items)
+           {
+               if (func(item)) {
+                   data.Add(item);
+               }
+           }
+           return data;
+        }
     }
 
 }

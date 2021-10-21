@@ -43,28 +43,28 @@ namespace API.Controllers {
         public async Task<IActionResult> Get (string id) {
 
             string contentRootPath = _hostingEnvironment.ContentRootPath;
-
-            List<string> list = SqlHelper.Get ("select *  from    test where id=" + id);
-            _logger.LogInformation (contentRootPath);
-            string str = string.Empty;
-            foreach (var item in list) {
-                str += item + ",";
-            }
+ _logger.LogInformation (contentRootPath);
+          //  List<string> list = SqlHelper.Get ("select *  from    test where id=" + id);
+           
+            // string str = string.Empty;
+            // foreach (var item in list) {
+            //     str += item + ",";
+            // }
               await TestThread ();
             return await Task.Run (() => {
 
                 // return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
-                return Ok (str);
+                return Ok ("123");
             });
           
         }
 
-        public async Task<int> TestThread () {
+        private async Task<int> TestThread () {
             await Test1 ();
             return 1;
         }
 
-        public Task<int> Test1 () {
+        private Task<int> Test1 () {
             return Task.Run (() => {
                 Thread.Sleep (5000);
                 return 1;
