@@ -21,10 +21,15 @@ namespace API {
 
         public static void Main (string[] args) {
         
+
+
+
+
+
         List<string> listAny1=new List<string>();
         bool have= listAny1.Any();
-        List<string> listAny2=null;
-        listAny2.Any();
+        //List<string> listAny2=null;
+       // listAny2.Any();
 
 
             #region 正则
