@@ -92,6 +92,13 @@ public  void   Use2(GBFun<GBDelegate,GBDelegate> gBFun){
 
 
 }
+public  void   Use3(Func<int, bool> fun){
+
+
+}
+
+
+
 
 
 

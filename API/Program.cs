@@ -20,17 +20,11 @@ namespace API {
     public class Program {
 
         public static void Main (string[] args) {
-        
 
-
-
-
-
-        List<string> listAny1=new List<string>();
-        bool have= listAny1.Any();
-        //List<string> listAny2=null;
-       // listAny2.Any();
-
+            List<string> listAny1 = new List<string> ();
+            bool have = listAny1.Any ();
+            //List<string> listAny2=null;
+            // listAny2.Any();
 
             #region 正则
             string line = @"\login\asdads";
@@ -121,7 +115,7 @@ namespace API {
             testDelegate.Use1 ((x, y) => { Console.WriteLine ("回调"); return x (3) + y; });
 
             testDelegate.Use2 ((x) => { return gbF => { return 1; }; });
-
+            testDelegate.Use3 (x => { return true; });
             int u = testDelegate.Call (9, 4);
 
             Console.WriteLine (u);
@@ -171,29 +165,26 @@ namespace API {
             #region 链表
             //last,late,latest
             LinkedList<Person> a = new LinkedList<Person> ();
-            
-            Person person1 = new Person () { Age = 1, Name = "Gerald1" };
-              Person person2 = new Person () { Age = 2, Name = "Gerald2" };
-             Person person3 = new Person () { Age = 3, Name = "Gerald3" };
-               LinkedListNode<Person> lln1 =new LinkedListNode<Person>(person1);
-                 LinkedListNode<Person> lln2 =new LinkedListNode<Person>(person2);
-            a.AddFirst(lln1);//头插法
-            a.AddFirst(lln2);//头插法
-            // a.AddLast(lln1);//尾插法
-            // a.AddLast(lln1);//尾插法
-              foreach (var item in a)
-             {
-                 Console.WriteLine(item.Name);
-             }
-           
-           Console.WriteLine("结束");
 
-            
-             a.AddAfter(lln1,person3);
-             foreach (var item in a)
-             {
-                 Console.WriteLine(item.Name);
-             }
+            Person person1 = new Person () { Age = 1, Name = "Gerald1" };
+            Person person2 = new Person () { Age = 2, Name = "Gerald2" };
+            Person person3 = new Person () { Age = 3, Name = "Gerald3" };
+            LinkedListNode<Person> lln1 = new LinkedListNode<Person> (person1);
+            LinkedListNode<Person> lln2 = new LinkedListNode<Person> (person2);
+            a.AddFirst (lln1); //头插法
+            a.AddFirst (lln2); //头插法
+            // a.AddLast(lln1);//尾插法
+            // a.AddLast(lln1);//尾插法
+            foreach (var item in a) {
+                Console.WriteLine (item.Name);
+            }
+
+            Console.WriteLine ("结束");
+
+            a.AddAfter (lln1, person3);
+            foreach (var item in a) {
+                Console.WriteLine (item.Name);
+            }
             #endregion
 
             #region $语法
