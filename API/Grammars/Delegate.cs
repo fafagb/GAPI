@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GAPI.Grammars {
@@ -8,16 +9,7 @@ namespace GAPI.Grammars {
 
     public delegate TResult GBFunc<in T1, in T2, out TResult> (T1 arg1, T2 arg2);
 
-
-
-
-      public delegate TResult GBFun<in T, out TResult> (T arg);
-
-
-
-
-
-
+    public delegate TResult GBFun<in T, out TResult> (T arg);
 
     public class TestDelegate {
         public int Sum (int number) {
@@ -29,17 +21,12 @@ namespace GAPI.Grammars {
             return arg1 - arg2;
         }
 
-        public  int Multiplication(GBDelegate gBDelegate,int x){
+        public int Multiplication (GBDelegate gBDelegate, int x) {
 
-return 0;
+            return 0;
         }
 
-
-
         public void Call () {
-
-
-         
 
             // 原始
             // GBDelegate gBDelegate = new GBDelegate (Sum); //GBDelegate  gBDelegate=Sum;
@@ -65,43 +52,120 @@ return 0;
             // GBFunc<int, int, int> gBFunc=(x1,x2)=>{return x1-x2;};
             // gBFunc(5,1);
 
-        
-        //委托套委托
-        GBFunc<GBDelegate,int,int> gBFunc=Multiplication;
+            //委托套委托
+            GBFunc<GBDelegate, int, int> gBFunc = Multiplication;
 
         }
 
         public int Call (int x, int y) {
 
-          return  Use ((x1, x2) => { x1 = x; x2 = y; return x1 - x2; });
+            return Use ((x1, x2) => { x1 = x; x2 = y; return x1 - x2; });
         }
 
         //委托作为参数
         public int Use (GBFunc<int, int, int> gBFunc) {
-           
-         return   gBFunc (default, default);
+
+            return gBFunc (default, default);
         }
 
-        public   void   Use1(GBFunc<GBDelegate,int,int> gBFunc){
+        public void Use1 (GBFunc<GBDelegate, int, int> gBFunc) {
 
-Console.WriteLine("Use1");
+            Console.WriteLine ("Use1");
 
         }
 
-public  void   Use2(GBFun<GBDelegate,GBDelegate> gBFun){
+        public void Use2 (GBFun<GBDelegate, GBDelegate> gBFun) {
 
+        }
+        public void Use3 (Func<int, bool> fun) {
 
-}
-public  void   Use3(Func<int, bool> fun){
+        }
 
+        public void UseTask (Task task) {
 
-}
+        }
 
+        public int Test1 (int number) {
+            Thread.Sleep (5000);
+            return number;
 
+        }
 
+        public void UseAsyncDelegate (Func<Task> func) {
 
+        }
 
+        public void UseAsyncDelegateWithPar (Func<Task<int>> func) {
 
+        }
+
+        public async void TestInvoke () {
+
+            UseAsyncDelegateWithPar (() => {
+
+                return new Task<int> (t => {
+
+                    return 1;
+                }, 2);
+            });
+
+            UseAsyncDelegateWithPar (async () => {
+
+                await Task.Run (() => {
+                    return 1;
+                });
+
+                return 1;
+            });
+
+            UseAsyncDelegateWithPar (async () => {
+
+                await TestAsyncWithPar ();
+
+                return 1;
+            });
+
+            UseAsyncDelegate (() => {
+
+                return new Task (() => { });
+
+            });
+
+            UseAsyncDelegate (() => {
+
+                return Task.Run (() => {
+
+                });
+
+            });
+
+            UseAsyncDelegate (async () => {
+
+                await TestAsync ();
+            });
+
+            // GBDelegate gbd = Test1;
+            // var ar = gbd.BeginInvoke (1, null, null);
+            // int iiii = gbd.EndInvoke (ar);
+            // List<long> ll = new List<long> ();
+
+            int testTi;
+            Task<int> ti = new Task<int> (t => { return 1; }, 2);
+            testTi = await ti;
+
+        }
+
+        public async Task TestAsync () {
+
+        }
+
+        public async Task<int> TestAsyncWithPar () {
+            await Task.Run (() => {
+                return 1;
+            });
+
+            return 1;
+        }
 
     }
 

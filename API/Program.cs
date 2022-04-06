@@ -21,6 +21,25 @@ namespace API {
 
         public static void Main (string[] args) {
 
+            long[] llll = new long[] { 1 };
+            var sssssss = llll.Take (2).ToArray ();
+
+            // for (int i = 0; i < 10000; i++)
+            // {
+            //     ll.Add(7868823992992);
+            // }
+
+            Stack<int> s = new Stack<int> ();
+            s.Push (1);
+            s.Push (2);
+            s.Push (3);
+            Console.WriteLine (s.Pop ());
+
+            GBStack<int> stack = new GBStack<int> (8);
+            stack.Push (1);
+            stack.Push (2);
+            stack.Push (3);
+
             List<string> listAny1 = new List<string> ();
             bool have = listAny1.Any ();
             //List<string> listAny2=null;
@@ -109,6 +128,7 @@ namespace API {
 
             #region  委托   
             TestDelegate testDelegate = new TestDelegate ();
+            testDelegate.TestInvoke ();
             testDelegate.Use ((x1, x2) => { return x1 - x2; });
             testDelegate.Use ((x1, x2) => { x1 = 3; x2 = 1; return x1 - x2; });
 
@@ -118,6 +138,14 @@ namespace API {
             testDelegate.Use3 (x => { return true; });
             int u = testDelegate.Call (9, 4);
 
+            testDelegate.UseTask (new Task (() => {
+                   Console.WriteLine("启动了新线程");
+            }));
+
+
+            //  testDelegate.UseAsyncDelegate(async t=> {return  await Task.Run(async () =>{
+
+            //  });  });
             Console.WriteLine (u);
 
             Func<string, string> translation = x => {
@@ -210,6 +238,10 @@ namespace API {
                 webBuilder.UseStartup<Startup> ().UseSerilog ();
                 // webBuilder.ConfigureKestrel (options => options.ListenAnyIP (5000));
                 webBuilder.ConfigureLogging (configure => configure.AddDebug ());
+                webBuilder.UseKestrel(opt=>{
+
+                    opt.Limits.MinRequestBodyDataRate=null;
+                });
             });
     }
 }
