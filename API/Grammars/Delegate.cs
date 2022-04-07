@@ -112,7 +112,7 @@ namespace GAPI.Grammars {
             UseAsyncDelegateWithPar (async () => {
 
                 await Task.Run (() => {
-                    return 1;
+
                 });
 
                 return 1;
@@ -159,9 +159,22 @@ namespace GAPI.Grammars {
 
         }
 
+        public Task TestAsync1 () {
+            return Task.Run (() => { });
+        }
+
+         public async Task TestAsync3 () {
+            await Task.Run (() => { });
+        }
+
+        public async Task<int> TestAsync2 () {
+            await Task.Run (() => { });
+            return 1;
+        }
+
         public async Task<int> TestAsyncWithPar () {
             await Task.Run (() => {
-                return 1;
+
             });
 
             return 1;
