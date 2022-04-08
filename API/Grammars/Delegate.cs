@@ -74,32 +74,9 @@ namespace GAPI.Grammars {
 
         }
 
-        public void Use2 (GBFun<GBDelegate, GBDelegate> gBFun) {
-
-        }
-        public void Use3 (Func<int, bool> fun) {
-
-        }
-
-        public void UseTask (Task task) {
-
-        }
-
-        public int Test1 (int number) {
-            Thread.Sleep (5000);
-            return number;
-
-        }
-
-        public void UseAsyncDelegate (Func<Task> func) {
-
-        }
-
-        public void UseAsyncDelegateWithPar (Func<Task<int>> func) {
-
-        }
-
         public async void TestInvoke () {
+
+     int i=    await   TestAsync2 ();
 
             UseAsyncDelegateWithPar (() => {
 
@@ -155,20 +132,47 @@ namespace GAPI.Grammars {
 
         }
 
-        public async Task TestAsync () {
+        public void Use2 (GBFun<GBDelegate, GBDelegate> gBFun) {
 
+        }
+        public void Use3 (Func<int, bool> fun) {
+
+        }
+
+        public void UseTask (Task task) {
+
+        }
+
+        public int Test1 (int number) {
+            Thread.Sleep (5000);
+            return number;
+
+        }
+
+        public void UseAsyncDelegate (Func<Task> func) {
+
+        }
+
+        public void UseAsyncDelegateWithPar (Func<Task<int>> func) {
+
+        }
+
+        public async Task TestAsync () {
+            
         }
 
         public Task TestAsync1 () {
             return Task.Run (() => { });
         }
 
-         public async Task TestAsync3 () {
+        public async Task TestAsync3 () {
             await Task.Run (() => { });
         }
 
         public async Task<int> TestAsync2 () {
-            await Task.Run (() => { });
+            await Task.Run (() => { 
+                Thread.Sleep(5000);
+            });
             return 1;
         }
 

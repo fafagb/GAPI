@@ -56,6 +56,13 @@ namespace API
                 Console.WriteLine("中间件1号 End");
             });
 
+                app.Use(async (context, next) =>
+            {
+                Console.WriteLine("中间件2号 Begin");
+                await next();
+                Console.WriteLine("中间件2号 End");
+            });
+
            app.UseHttpsRedirection();
 
             app.UseRouting();

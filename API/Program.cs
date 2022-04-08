@@ -143,9 +143,7 @@ namespace API {
             }));
 
 
-            //  testDelegate.UseAsyncDelegate(async t=> {return  await Task.Run(async () =>{
-
-            //  });  });
+           testDelegate.TestInvoke();
             Console.WriteLine (u);
 
             Func<string, string> translation = x => {
