@@ -128,7 +128,7 @@ namespace API {
 
             #region  委托   
             TestDelegate testDelegate = new TestDelegate ();
-            testDelegate.TestInvoke ();
+           
             testDelegate.Use ((x1, x2) => { return x1 - x2; });
             testDelegate.Use ((x1, x2) => { x1 = 3; x2 = 1; return x1 - x2; });
 
@@ -143,7 +143,7 @@ namespace API {
             }));
 
 
-           testDelegate.TestInvoke();
+      
             Console.WriteLine (u);
 
             Func<string, string> translation = x => {

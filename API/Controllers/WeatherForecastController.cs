@@ -41,9 +41,12 @@ namespace API.Controllers {
 
         [HttpGet]
         public async Task<IActionResult> Get (string id) {
-          Console.WriteLine("进入");
-                await AsyncFunction ();
-            
+
+            TestDelegate testDelegate = new TestDelegate ();
+        await    testDelegate.TestInvoke ();
+            Console.WriteLine ("进入");
+            await AsyncFunction ();
+
             //             string contentRootPath = _hostingEnvironment.ContentRootPath;
             //  _logger.LogInformation (contentRootPath);
             //           //  List<string> list = SqlHelper.Get ("select *  from    test where id=" + id);
@@ -87,64 +90,55 @@ namespace API.Controllers {
         }
 
         async Task<int> AsyncFunction () {
-           
+
             await Task.Run (() => {
-              Thread.Sleep(5000);
-              
+                Thread.Sleep (5000);
+
             });
-              Console.WriteLine ("ok");
-           // Console.WriteLine ("使用System.Threading.Tasks.Task执行异步操作.");
+            Console.WriteLine ("ok");
+            // Console.WriteLine ("使用System.Threading.Tasks.Task执行异步操作.");
             // for (int i = 0; i < 10; i++) {
             //     Console.WriteLine (string.Format ("AsyncFunction:i={0}", i));
             // }
             return 1;
         }
 
+        public async Task<ActionResult> Index () {
+            DateTime startTime = DateTime.Now; //进入DoSomething方法前的时间
+            var startThreadId = Thread.CurrentThread.ManagedThreadId; //进入DoSomething方法前的线程ID
 
+            await DoSomething (); //耗时操作
 
-         public async Task<ActionResult> Index()
-        {
-            DateTime startTime = DateTime.Now;//进入DoSomething方法前的时间
-            var startThreadId = Thread.CurrentThread.ManagedThreadId;//进入DoSomething方法前的线程ID
-
-            await DoSomething();//耗时操作
-
-            DateTime endTime = DateTime.Now;//完成DoSomething方法的时间
-            var endThreadId = Thread.CurrentThread.ManagedThreadId;//完成DoSomething方法后的线程ID
-            return Content($"startTime:{ startTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } startThreadId:{ startThreadId }<br/>endTime:{ endTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } endThreadId:{ endThreadId }<br/><br/>");
+            DateTime endTime = DateTime.Now; //完成DoSomething方法的时间
+            var endThreadId = Thread.CurrentThread.ManagedThreadId; //完成DoSomething方法后的线程ID
+            return Content ($"startTime:{ startTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } startThreadId:{ startThreadId }<br/>endTime:{ endTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } endThreadId:{ endThreadId }<br/><br/>");
         }
 
         /// <summary>
         /// 耗时操作
         /// </summary>
         /// <returns></returns>
-        private async Task DoSomething()
-        {
-            await Task.Run(() => Thread.Sleep(10000));
+        private async Task DoSomething () {
+            await Task.Run (() => Thread.Sleep (10000));
         }
 
+        public ActionResult Index1 () {
+            DateTime startTime = DateTime.Now; //进入DoSomething方法前的时间
+            var startThreadId = Thread.CurrentThread.ManagedThreadId; //进入DoSomething方法前的线程ID
 
+            DoSomething1 (); //耗时操作
 
-
-        public ActionResult Index1()
-        {
-            DateTime startTime = DateTime.Now;//进入DoSomething方法前的时间
-            var startThreadId = Thread.CurrentThread.ManagedThreadId;//进入DoSomething方法前的线程ID
-
-            DoSomething1();//耗时操作
-
-            DateTime endTime = DateTime.Now;//完成DoSomething方法的时间
-            var endThreadId = Thread.CurrentThread.ManagedThreadId;//完成DoSomething方法后的线程ID
-            return Content($"startTime:{ startTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } startThreadId:{ startThreadId }<br/>endTime:{ endTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } endThreadId:{ endThreadId }<br/><br/>");
+            DateTime endTime = DateTime.Now; //完成DoSomething方法的时间
+            var endThreadId = Thread.CurrentThread.ManagedThreadId; //完成DoSomething方法后的线程ID
+            return Content ($"startTime:{ startTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } startThreadId:{ startThreadId }<br/>endTime:{ endTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } endThreadId:{ endThreadId }<br/><br/>");
         }
 
         /// <summary>
         /// 耗时操作
         /// </summary>
         /// <returns></returns>
-        private void DoSomething1()
-        {
-            Thread.Sleep(10000);
+        private void DoSomething1 () {
+            Thread.Sleep (10000);
         }
 
     }

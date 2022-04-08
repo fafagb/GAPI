@@ -74,7 +74,7 @@ namespace GAPI.Grammars {
 
         }
 
-        public async void TestInvoke () {
+        public async Task TestInvoke () {
 
      int i=    await   TestAsync2 ();
 
@@ -126,9 +126,11 @@ namespace GAPI.Grammars {
             // int iiii = gbd.EndInvoke (ar);
             // List<long> ll = new List<long> ();
 
-            int testTi;
-            Task<int> ti = new Task<int> (t => { return 1; }, 2);
-            testTi = await ti;
+            // int testTi;
+            // Task<int> ti = new Task<int> (t => {
+                
+            //      return 1; }, 2);
+           // testTi = await ti;
 
         }
 
