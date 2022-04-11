@@ -76,8 +76,9 @@ namespace GAPI.Grammars {
 
         public async Task TestInvoke () {
 
+    Console.WriteLine("await中1："+Thread.CurrentThread.ManagedThreadId);
      int i=    await   TestAsync2 ();
-
+ Console.WriteLine("await中4："+Thread.CurrentThread.ManagedThreadId);
             UseAsyncDelegateWithPar (() => {
 
                 return new Task<int> (t => {
@@ -172,7 +173,9 @@ namespace GAPI.Grammars {
         }
 
         public async Task<int> TestAsync2 () {
+             Console.WriteLine("await中2："+Thread.CurrentThread.ManagedThreadId);
             await Task.Run (() => { 
+                 Console.WriteLine("await中3："+Thread.CurrentThread.ManagedThreadId);
                 Thread.Sleep(5000);
             });
             return 1;
@@ -185,6 +188,12 @@ namespace GAPI.Grammars {
 
             return 1;
         }
+
+
+
+
+
+        
 
     }
 

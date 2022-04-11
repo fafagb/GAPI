@@ -43,7 +43,9 @@ namespace API.Controllers {
         public async Task<IActionResult> Get (string id) {
 
             TestDelegate testDelegate = new TestDelegate ();
+            Console.WriteLine("await前"+Thread.CurrentThread.ManagedThreadId);
         await    testDelegate.TestInvoke ();
+            Console.WriteLine("await后"+Thread.CurrentThread.ManagedThreadId);
             Console.WriteLine ("进入");
             await AsyncFunction ();
 
@@ -139,6 +141,15 @@ namespace API.Controllers {
         /// <returns></returns>
         private void DoSomething1 () {
             Thread.Sleep (10000);
+        }
+
+
+
+
+         public async Task<string> GetDataAsync2()
+        {
+            var result = await System.IO.File.ReadAllBytesAsync(@"F:\package\package.rar");
+            return "ok";
         }
 
     }
