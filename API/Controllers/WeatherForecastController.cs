@@ -43,9 +43,9 @@ namespace API.Controllers {
         public async Task<IActionResult> Get (string id) {
 
             TestDelegate testDelegate = new TestDelegate ();
-            Console.WriteLine("await前"+Thread.CurrentThread.ManagedThreadId);
-        await    testDelegate.TestInvoke ();
-            Console.WriteLine("await后"+Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine ("await前" + Thread.CurrentThread.ManagedThreadId);
+            await testDelegate.TestInvoke ();
+            Console.WriteLine ("await后" + Thread.CurrentThread.ManagedThreadId);
             Console.WriteLine ("进入");
             await AsyncFunction ();
 
@@ -143,13 +143,41 @@ namespace API.Controllers {
             Thread.Sleep (10000);
         }
 
-
-
-
-         public async Task<string> GetDataAsync2()
-        {
-            var result = await System.IO.File.ReadAllBytesAsync(@"F:\package\package.rar");
+        public async Task<string> GetDataAsync2 () {
+            var result = await System.IO.File.ReadAllBytesAsync (@"D:\睿易\Desktop.rar");
+           Thread.Sleep(5000);
             return "ok";
+        }
+
+
+
+  [HttpGet]
+  public async Task Test () {
+
+            // GetString (1);
+            // List<Task<string>> list = new List<Task<string>> ();
+            // for (int i = 0; i < 5; i++) {
+            //     list.Add (GetString (i));
+            // }
+
+
+             GetDataAsync2 ();
+            List<Task<string>> list = new List<Task<string>> ();
+            for (int i = 0; i < 5; i++) {
+                list.Add (GetDataAsync2 ());
+            }
+
+        }
+  [HttpGet]
+          public async Task Test6 () {
+await GetDataAsync2 ();
+          }
+
+        public async Task<string> GetString (int i) {
+
+            Thread.Sleep (5000);
+            await Task.CompletedTask;
+            return i.ToString ();
         }
 
     }
