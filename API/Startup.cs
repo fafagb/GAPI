@@ -48,7 +48,7 @@ namespace API
                 app.UseDeveloperExceptionPage();
             }
 
-          
+       
              app.Use(async (context, next) =>
             {
                 Console.WriteLine("中间件1号 Begin");

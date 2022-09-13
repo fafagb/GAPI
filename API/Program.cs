@@ -234,7 +234,7 @@ namespace API {
             Host.CreateDefaultBuilder (args)
             .ConfigureWebHostDefaults (webBuilder => {
                 webBuilder.UseStartup<Startup> ().UseSerilog ();
-                // webBuilder.ConfigureKestrel (options => options.ListenAnyIP (5000));
+             //    webBuilder.ConfigureKestrel (options => options.ListenAnyIP (7000));
                 webBuilder.ConfigureLogging (configure => configure.AddDebug ());
                 webBuilder.UseKestrel(opt=>{
 
