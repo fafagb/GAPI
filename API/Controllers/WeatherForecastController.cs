@@ -40,6 +40,11 @@ namespace API.Controllers {
         }
 
         [HttpGet]
+        public async Task<string> TestDocker () {
+            return "TestDocker";
+        }
+
+        [HttpGet]
         public async Task<IActionResult> Get (string id) {
 
             TestDelegate testDelegate = new TestDelegate ();
@@ -145,14 +150,12 @@ namespace API.Controllers {
 
         public async Task<string> GetDataAsync2 () {
             var result = await System.IO.File.ReadAllBytesAsync (@"D:\睿易\Desktop.rar");
-           Thread.Sleep(5000);
+            Thread.Sleep (5000);
             return "ok";
         }
 
-
-
-  [HttpGet]
-  public async Task Test () {
+        [HttpGet]
+        public async Task Test () {
 
             // GetString (1);
             // List<Task<string>> list = new List<Task<string>> ();
@@ -160,18 +163,18 @@ namespace API.Controllers {
             //     list.Add (GetString (i));
             // }
 
-
-             GetDataAsync2 ();
+            GetDataAsync2 ();
             List<Task<string>> list = new List<Task<string>> ();
             for (int i = 0; i < 5; i++) {
                 list.Add (GetDataAsync2 ());
             }
 
         }
-  [HttpGet]
-          public async Task Test6 () {
-await GetDataAsync2 ();
-          }
+
+        [HttpGet]
+        public async Task Test6 () {
+            await GetDataAsync2 ();
+        }
 
         public async Task<string> GetString (int i) {
 
