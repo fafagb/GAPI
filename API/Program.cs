@@ -24,10 +24,7 @@ namespace API {
             long[] llll = new long[] { 1 };
             var sssssss = llll.Take (2).ToArray ();
 
-            // for (int i = 0; i < 10000; i++)
-            // {
-            //     ll.Add(7868823992992);
-            // }
+
 
             Stack<int> s = new Stack<int> ();
             s.Push (1);

@@ -30,8 +30,11 @@ git push origin master（分支名）
 
 
 
-stage changes  存到暂存区(存到提交区)   
-unstage changes 从暂存区移除
+stage changes  阶段性提交  （部分提交区）
+unstage changes 从阶段性提交移除
+
+应用场景 如果部分提交区没有文件，那么commit的时候就提交的所有发生改变的文件，如果部分提交区有文件，那么commit的时候提交的只是部分提交区的文件，常用于有的文件想提交有的文件不想提交的场景
+
 
 stash  changes  把文件移动到隐藏区  经常用于切换分支的时候不想提交改变的文件
 git stash pop   将最近一次藏起来的内容提取出来
