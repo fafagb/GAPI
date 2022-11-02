@@ -13,3 +13,8 @@
 
 # dotnet publish -c Release
 
+
+
+# task.json 项目生成的配置
+# launch.json是vscode用于调试的配置文件
+
