@@ -23,6 +23,12 @@
 
 #有时候我们会忘记先在.gitignore文件中添加一些诸如生产环境配置文件的操作，这个时候，这些敏感文件已经被上传到了库中。。。。而此时再添加.gitignore记录为时已晚，怎么办呢？
 
+git rm -r --cached .\.vscode\
+git commit -m "脱离.vscode的版本控制"
+在.gitignore文件中配置你需要不受版本控制的文件 .vscode
+git push origin master（分支名）
+
+
 
 stage changes  存到暂存区   
 unstage changes 从暂存区移除
