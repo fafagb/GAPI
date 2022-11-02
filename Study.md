@@ -18,3 +18,16 @@
 # task.json 项目生成的配置
 # launch.json是vscode用于调试的配置文件
 
+
+
+
+#有时候我们会忘记先在.gitignore文件中添加一些诸如生产环境配置文件的操作，这个时候，这些敏感文件已经被上传到了库中。。。。而此时再添加.gitignore记录为时已晚，怎么办呢？
+
+
+stage changes  存到暂存区   
+unstage changes 从暂存区移除
+
+stash  changes  把文件移动到隐藏区  经常用于切换分支的时候不想提交改变的文件
+git stash pop   将最近一次藏起来的内容提取出来
+git stash apply 如果stash了好几次，要提取其中某一次的内容，可以使用 git stash apply命令
+
