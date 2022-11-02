@@ -30,7 +30,7 @@ git push origin master（分支名）
 
 
 
-stage changes  存到暂存区   
+stage changes  存到暂存区(存到提交区)   
 unstage changes 从暂存区移除
 
 stash  changes  把文件移动到隐藏区  经常用于切换分支的时候不想提交改变的文件
