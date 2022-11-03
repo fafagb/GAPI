@@ -40,3 +40,11 @@ stash  changes  把文件移动到隐藏区  经常用于切换分支的时候�
 git stash pop   将最近一次藏起来的内容提取出来
 git stash apply 如果stash了好几次，要提取其中某一次的内容，可以使用 git stash apply命令
 
+
+
+
+
+动态编译
+代码片段
+
+
