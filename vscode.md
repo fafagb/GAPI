@@ -24,5 +24,5 @@ VsCode开发.net5 服务时碰到C#的类、方法等使用ctrl+鼠标左键都�
 
 Omnisharp.Path 
 指定路径
-C:\Users\Administrator\.vscode\extensions\ms-dotnettools.csharp-1.25.1-win32-ia32\.omnisharp\1.39.3-beta.11-net6.0\OmniSharp.dll
+C:\Users\Administrator\.vscode\extensions\ms-dotnettools.csharp-1.25.2-win32-ia32\.omnisharp\1.39.3-beta.11-net6.0\OmniSharp.dll
 下载最新的OmniSharp：latest 
