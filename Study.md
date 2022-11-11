@@ -46,6 +46,13 @@ github不用翻墙：安装fastgithub.ui
 
 
 
+
+nuget配置文件位置 %AppData%/NuGet  
+
+
+
+
+
 动态编译
 代码片段
 
