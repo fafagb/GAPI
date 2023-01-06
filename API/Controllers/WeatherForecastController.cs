@@ -41,6 +41,18 @@ namespace API.Controllers {
 
         [HttpGet]
         public async Task<string> TestDocker () {
+          
+           Test test = new Test();
+            //test.Fibo(3);
+            for (int i = 0; i < 2; i++)
+            {
+                Task.Run(() =>
+                {
+                    test.Testgo(1);
+
+                });
+                Console.WriteLine("主线程");
+            }
             return "TestDocker";
         }
 
