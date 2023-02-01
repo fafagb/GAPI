@@ -18,7 +18,8 @@ ctrl+tab 切换页签
 ctrl+q 切换菜单栏
 ctrl+w 选中
 ctrl + 1/2/3  切换分屏
-
+ctrl+\ 分屏
+alt+\ 结束分屏
 VsCode开发.net5 服务时碰到C#的类、方法等使用ctrl+鼠标左键都无法跳转的问题
 文件夹中可能有多个"项目",VSCode选择了"错误"项目.
 使用ctrl-shift-P并选择"OmniSharp:选择项目
