@@ -11,14 +11,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace API.Controllers {
+namespace API.Controllers
+{
     [ApiController]
-    [Route ("[controller]/[action]")]
-    public class WeatherForecastController : ControllerBase {
+    [Route("[controller]/[action]")]
+    public class WeatherForecastController : ControllerBase
+    {
+        
+        
         [Obsolete]
         private readonly IHostingEnvironment _hostingEnvironment;
 
-        private static readonly string[] Summaries = new [] {
+        private static readonly string[] Summaries = new[] {
             "Freezing",
             "Bracing",
             "Chilly",
@@ -31,18 +35,13 @@ namespace API.Controllers {
             "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController (ILogger<WeatherForecastController> logger, IHostingEnvironment hostingEnvironment) {
-            _hostingEnvironment = hostingEnvironment;
-
-            _logger = logger;
-        }
+       
 
         [HttpGet]
-        public async Task<string> TestDocker () {
-          
-           Test test = new Test();
+        public async Task<string> TestDocker()
+        {
+
+            Test test = new Test();
             //test.Fibo(3);
             for (int i = 0; i < 2; i++)
             {
@@ -57,14 +56,15 @@ namespace API.Controllers {
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get (string id) {
+        public async Task<IActionResult> Get(string id)
+        {
 
-            TestDelegate testDelegate = new TestDelegate ();
-            Console.WriteLine ("await前" + Thread.CurrentThread.ManagedThreadId);
-            await testDelegate.TestInvoke ();
-            Console.WriteLine ("await后" + Thread.CurrentThread.ManagedThreadId);
-            Console.WriteLine ("进入");
-            await AsyncFunction ();
+            TestDelegate testDelegate = new TestDelegate();
+            Console.WriteLine("await前" + Thread.CurrentThread.ManagedThreadId);
+            await testDelegate.TestInvoke();
+            Console.WriteLine("await后" + Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("进入");
+            await AsyncFunction();
 
             //             string contentRootPath = _hostingEnvironment.ContentRootPath;
             //  _logger.LogInformation (contentRootPath);
@@ -75,46 +75,54 @@ namespace API.Controllers {
             //             //     str += item + ",";
             //             // }
             //               await TestThread ();
-            return await Task.Run (() => {
+            return await Task.Run(() =>
+            {
 
                 // return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
-                return Ok ("123");
+                return Ok("123");
             });
 
         }
 
-        private async Task<int> TestThread () {
-            await Test1 ();
+        private async Task<int> TestThread()
+        {
+            await Test1();
             return 1;
         }
 
-        private Task<int> Test1 () {
-            return Task.Run (() => {
-                Thread.Sleep (5000);
+        private Task<int> Test1()
+        {
+            return Task.Run(() =>
+            {
+                Thread.Sleep(5000);
                 return 1;
             });
 
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPara (List<int> list) {
+        public async Task<IActionResult> GetPara(List<int> list)
+        {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
-            _logger.LogInformation (contentRootPath);
-            return await Task.Run (() => {
+            _logger.LogInformation(contentRootPath);
+            return await Task.Run(() =>
+            {
 
                 // return PhysicalFile(contentRootPath+@"/Resource/lxy1.gif", "image/gif");
-                return Ok ("胖头鱼陆新元");
+                return Ok("胖头鱼陆新元");
             });
 
         }
 
-        async Task<int> AsyncFunction () {
+        async Task<int> AsyncFunction()
+        {
 
-            await Task.Run (() => {
-                Thread.Sleep (5000);
+            await Task.Run(() =>
+            {
+                Thread.Sleep(5000);
 
             });
-            Console.WriteLine ("ok");
+            Console.WriteLine("ok");
             // Console.WriteLine ("使用System.Threading.Tasks.Task执行异步操作.");
             // for (int i = 0; i < 10; i++) {
             //     Console.WriteLine (string.Format ("AsyncFunction:i={0}", i));
@@ -122,52 +130,58 @@ namespace API.Controllers {
             return 1;
         }
 
-        public async Task<ActionResult> Index () {
+        public async Task<ActionResult> Index()
+        {
             DateTime startTime = DateTime.Now; //进入DoSomething方法前的时间
             var startThreadId = Thread.CurrentThread.ManagedThreadId; //进入DoSomething方法前的线程ID
 
-            await DoSomething (); //耗时操作
+            await DoSomething(); //耗时操作
 
             DateTime endTime = DateTime.Now; //完成DoSomething方法的时间
             var endThreadId = Thread.CurrentThread.ManagedThreadId; //完成DoSomething方法后的线程ID
-            return Content ($"startTime:{ startTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } startThreadId:{ startThreadId }<br/>endTime:{ endTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } endThreadId:{ endThreadId }<br/><br/>");
+            return Content($"startTime:{startTime.ToString("yyyy-MM-dd HH:mm:ss:fff")} startThreadId:{startThreadId}<br/>endTime:{endTime.ToString("yyyy-MM-dd HH:mm:ss:fff")} endThreadId:{endThreadId}<br/><br/>");
         }
 
         /// <summary>
         /// 耗时操作
         /// </summary>
         /// <returns></returns>
-        private async Task DoSomething () {
-            await Task.Run (() => Thread.Sleep (10000));
+        private async Task DoSomething()
+        {
+            await Task.Run(() => Thread.Sleep(10000));
         }
 
-        public ActionResult Index1 () {
+        public ActionResult Index1()
+        {
             DateTime startTime = DateTime.Now; //进入DoSomething方法前的时间
             var startThreadId = Thread.CurrentThread.ManagedThreadId; //进入DoSomething方法前的线程ID
 
-            DoSomething1 (); //耗时操作
+            DoSomething1(); //耗时操作
 
             DateTime endTime = DateTime.Now; //完成DoSomething方法的时间
             var endThreadId = Thread.CurrentThread.ManagedThreadId; //完成DoSomething方法后的线程ID
-            return Content ($"startTime:{ startTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } startThreadId:{ startThreadId }<br/>endTime:{ endTime.ToString("yyyy-MM-dd HH:mm:ss:fff") } endThreadId:{ endThreadId }<br/><br/>");
+            return Content($"startTime:{startTime.ToString("yyyy-MM-dd HH:mm:ss:fff")} startThreadId:{startThreadId}<br/>endTime:{endTime.ToString("yyyy-MM-dd HH:mm:ss:fff")} endThreadId:{endThreadId}<br/><br/>");
         }
 
         /// <summary>
         /// 耗时操作
         /// </summary>
         /// <returns></returns>
-        private void DoSomething1 () {
-            Thread.Sleep (10000);
+        private void DoSomething1()
+        {
+            Thread.Sleep(10000);
         }
 
-        public async Task<string> GetDataAsync2 () {
-            var result = await System.IO.File.ReadAllBytesAsync (@"D:\睿易\Desktop.rar");
-            Thread.Sleep (5000);
+        public async Task<string> GetDataAsync2()
+        {
+            var result = await System.IO.File.ReadAllBytesAsync(@"D:\睿易\Desktop.rar");
+            Thread.Sleep(5000);
             return "ok";
         }
 
         [HttpGet]
-        public async Task Test () {
+        public async Task Test()
+        {
 
             // GetString (1);
             // List<Task<string>> list = new List<Task<string>> ();
@@ -175,24 +189,61 @@ namespace API.Controllers {
             //     list.Add (GetString (i));
             // }
 
-            GetDataAsync2 ();
-            List<Task<string>> list = new List<Task<string>> ();
-            for (int i = 0; i < 5; i++) {
-                list.Add (GetDataAsync2 ());
+            GetDataAsync2();
+            List<Task<string>> list = new List<Task<string>>();
+            for (int i = 0; i < 5; i++)
+            {
+                list.Add(GetDataAsync2());
             }
 
         }
 
         [HttpGet]
-        public async Task Test6 () {
-            await GetDataAsync2 ();
+        public async Task Test6()
+        {
+            await GetDataAsync2();
         }
 
-        public async Task<string> GetString (int i) {
+        public async Task<string> GetString(int i)
+        {
 
-            Thread.Sleep (5000);
+            Thread.Sleep(5000);
             await Task.CompletedTask;
-            return i.ToString ();
+            return i.ToString();
+        }
+
+
+
+
+        public async Task TestIndex()
+        {
+
+            SqlHelper helper = new SqlHelper();
+            await helper.GetAsync("SELECT *   FROM  person   where   name=@name", new object[] { "6666666666" });
+        }
+
+
+
+
+        //写一个数组去重的异步方法
+        public async Task<int[]> RemoveDuplicate(int[] arr)
+        {
+            //创建一个List集合
+            List<int> list = new List<int>();
+            //遍历数组
+            foreach (var item in arr)
+            {
+                //判断集合中是否存在当前元素
+                if (!list.Contains(item))
+                {
+                    //如果不存在就添加到集合中
+                    list.Add(item);
+                }
+            }
+            //将集合转换为数组
+            int[] newArr = list.ToArray();
+            //返回数组
+            return newArr;
         }
 
     }

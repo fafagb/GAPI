@@ -32,7 +32,7 @@ C:\Users\Administrator\.vscode\extensions\ms-dotnettools.csharp-1.25.2-win32-ia3
 
 
 
-
+%AppData%\NuGet\NuGet.Config
   <activePackageSource>
     <add key="nuget.org" value="https://www.nuget.org/api/v2/" />
   </activePackageSource>
@@ -50,3 +50,10 @@ dotnet add package Microsoft.AspNetCore.StaticFiles -s https://dotnet.myget.org/
 注意：执行命令的目录是要安装的项目的.csproj文件位置
 5、指定项目.csproj文件位置
 dotnet add ToDo.csproj package NLog -v 1.0.0
+
+dotnet add package Domain.ExerciseModel -s http://nuget.hexstudy.com/nuget/HexFutureMicroService   -s https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
+
+项目打包
+dotnet pack -c Release
+dotnet pack -c Release -o ./output
+
