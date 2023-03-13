@@ -56,4 +56,5 @@ dotnet add package Domain.ExerciseModel -s http://nuget.hexstudy.com/nuget/HexFu
 项目打包
 dotnet pack -c Release
 dotnet pack -c Release -o ./output
-
+列出当前目录中的已配置源
+dotnet nuget list source
