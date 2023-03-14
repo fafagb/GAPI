@@ -35,7 +35,13 @@ namespace API.Controllers
             "Scorching"
         };
 
-       
+         private readonly ILogger<WeatherForecastController> _logger;
+
+        public WeatherForecastController (ILogger<WeatherForecastController> logger, IHostingEnvironment hostingEnvironment) {
+            _hostingEnvironment = hostingEnvironment;
+
+            _logger = logger;
+        }
 
         [HttpGet]
         public async Task<string> TestDocker()
@@ -104,7 +110,7 @@ namespace API.Controllers
         public async Task<IActionResult> GetPara(List<int> list)
         {
             string contentRootPath = _hostingEnvironment.ContentRootPath;
-            _logger.LogInformation(contentRootPath);
+           // _logger.LogInformation(contentRootPath);
             return await Task.Run(() =>
             {
 

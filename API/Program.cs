@@ -24,8 +24,12 @@ namespace API
 
         public static void Main(string[] args)
         {
+var dic=new Dictionary<long,int>(){{123,2}};
+                    var resul = dic.Where(t => t.Value > 0).Select(t => t.Key).ToArray();
 
 
+
+ var results = dic.Where(t => t.Value > 0).Select(t => t.Key).ToArray();
             try
             {
                 Console.Write("123");
