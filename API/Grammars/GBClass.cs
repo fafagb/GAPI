@@ -14,7 +14,8 @@ namespace GAPI.Grammars {
     public class Person {
 
 
-
+public  bool  IsAlive { get; set; }=true;
+public  bool IsOk { get; set; }
 
         public int Age { get; set; }
 

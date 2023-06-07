@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.WebSockets;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,11 +21,85 @@ using Serilog.Events;
 namespace API
 {
 
+
+    
+
     public class Program
     {
 
-        public static void Main(string[] args)
+
+
+
+
+
+
+
+
+
+
+
+         public static long GetOpenTime(DateTime OpenTime)
         {
+            TimeSpan ts = OpenTime - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            return Convert.ToInt64(ts.TotalDays);
+        }
+
+
+
+         private static async Task ReceiveMessagesAsync(ClientWebSocket webSocket)
+    {
+        byte[] buffer = new byte[1024];
+        while (webSocket.State == WebSocketState.Open)
+        {
+            var result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            if (result.MessageType == WebSocketMessageType.Close)
+            {
+                await webSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
+            }
+            else
+            {
+              var message = Encoding.UTF8.GetString(buffer, 0, result.Count);
+                Console.Write(message);
+            }
+        }
+    }
+
+        public static async Task Main(string[] args)
+        {
+ // Uri uri = new Uri("ws://localhost:7000/ws?str=写一份详细的语宙gpt的功能说明"); // Update with your URL
+  Uri uri = new Uri("wss://ai.myi.cn/ws/openai/ask?words=写一份详细的语宙gpt的功能说明"); // Update with your URL
+        ClientWebSocket webSocket = null;
+
+        try
+        {
+            webSocket = new ClientWebSocket();
+            await webSocket.ConnectAsync(uri, CancellationToken.None);
+            await ReceiveMessagesAsync(webSocket);
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception as per your needs
+            Console.WriteLine($"Error: {ex.Message}");
+        }
+        finally
+        {
+            if (webSocket != null)
+                webSocket.Dispose();
+            Console.WriteLine("WebSocket closed.");
+        }
+
+
+
+
+
+
+
+Person person11=new Person();
+person11.IsAlive=false;
+
+  var opentime = GetOpenTime(Convert.ToDateTime("2023-04-10 16:43:10.882"));
+
+
 var dic=new Dictionary<long,int>(){{123,2}};
                     var resul = dic.Where(t => t.Value > 0).Select(t => t.Key).ToArray();
 
@@ -288,6 +364,7 @@ var dic=new Dictionary<long,int>(){{123,2}};
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args) .ConfigureLogging((hostingContext, builder) =>
              {
+            
                  //过滤掉系统默认的一些日志
                 //  builder.AddFilter("System", LogLevel.Information);
                 //  builder.AddFilter("Microsoft", LogLevel.Information);
@@ -297,7 +374,7 @@ var dic=new Dictionary<long,int>(){{123,2}};
             {
                 
                 webBuilder.UseStartup<Startup>().UseSerilog();
-                //    webBuilder.ConfigureKestrel (options => options.ListenAnyIP (7000));
+                    webBuilder.ConfigureKestrel (options => options.ListenAnyIP (7000));
                 webBuilder.ConfigureLogging(configure => configure.AddDebug());
                 webBuilder.UseKestrel(opt =>
                 {
