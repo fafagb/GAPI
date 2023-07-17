@@ -66,8 +66,9 @@ namespace API
 
         public static async Task Main(string[] args)
         {
- // Uri uri = new Uri("ws://localhost:7000/ws?str=写一份详细的语宙gpt的功能说明"); // Update with your URL
-  Uri uri = new Uri("wss://ai.myi.cn/ws/openai/ask?words=写一份详细的语宙gpt的功能说明"); // Update with your URL
+
+    Uri uri = new Uri("ws://localhost:7000/openai/ask?ask=为什么是北京&que=为什么是北京"); // Update with your URL
+  //Uri uri = new Uri("ws://ai.myi.cn/ws/openai/ask?ask=写一份详细的语宙gpt的功能说明&"); // Update with your URL
         ClientWebSocket webSocket = null;
 
         try
@@ -77,9 +78,11 @@ namespace API
             await ReceiveMessagesAsync(webSocket);
         }
         catch (Exception ex)
-        {
+        {  await webSocket.ConnectAsync(uri, CancellationToken.None);
             // Handle the exception as per your needs
             Console.WriteLine($"Error: {ex.Message}");
+          
+
         }
         finally
         {
